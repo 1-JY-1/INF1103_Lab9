@@ -1,0 +1,4 @@
+product_type,product_id,name,price,stock_quantity
+physical,P001,Desk Lamp,25,10
+digital,D001,Photo Editor,49.9,100
+physical,P002,Office Chair,120,5

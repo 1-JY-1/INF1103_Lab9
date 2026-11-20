@@ -5,6 +5,13 @@ from supplier import Supplier
 
 class Product(ABC):
     def __init__(self, id:str, name:str, price:float, stock:int, supplier: Supplier):
+        
+        if price <= 0:
+            raise ValueError("Product price must be greater than zero")
+
+        if stock < 0:
+            raise ValueError("Product stock cannot be negative")
+        
         self.id = id
         self.name = name
         self.price = price
@@ -63,7 +70,7 @@ class physicalProduct(Product, CanBeShipped):
         self.display_supplier()
 
     def get_fulfilment_info(self):
-        print("This product requires delivered physically.")
+        return print("This product requires delivered physically.")
 
 
 
@@ -82,4 +89,4 @@ class digitalProduct(Product):
         self.display_supplier()
 
     def get_fulfilment_info(self):
-        print("This product is delivered digitally.") 
+        return print("This product is delivered digitally.") 
